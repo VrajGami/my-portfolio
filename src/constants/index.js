@@ -8,24 +8,23 @@ import {
   html,
   css,
   reactjs,
-  redux,
+powerbi,
   tailwind,
-  nodejs,
-  mongodb,
+
+flutter,
+angular,
   git,
   figma,
-  docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
-  carrent,
-  jobit,
-  tripguide,
+dotnet,
+aws,
+unbc,
+tjx,
+
+
   threejs,
 } from "../assets";
 
-export const aboutContent = "I'm a passionate and results-driven Computer Science undergraduate with a strong foundation in full-stack development, machine learning, and data management. I thrive on collaborating with cross-functional teams to engineer innovative solutions that address real-world challenges, from enhancing campus accessibility to developing advanced healthcare applications. My commitment to continuous learning and problem-solving drives me to create efficient, scalable, and user-centric software experiences.";
+export const aboutContent = "Small intro or first impression";
 
 
 export const navLinks = [
@@ -57,53 +56,37 @@ const services = [
     icon: backend,
   },
   {
-    title: "ML/AI Enthusiast",
+    title: "Cloud",
     icon: creator,
   },
 ];
 
 const technologies = [
-  {
-    name: "HTML 5",
-    icon: html,
+
+   {
+      name: "Angular",
+    icon: angular,
   },
   {
-    name: "CSS 3",
-    icon: css,
+      name: "Flutter",
+    icon: flutter,
   },
-  {
-    name: "JavaScript",
-    icon: javascript,
+   {
+      name: ".Net Core",
+    icon: dotnet,
+  }, {
+      name: "AWS",
+    icon: aws,
   },
-  {
-    name: "TypeScript",
-    icon: typescript,
-  },
+    {
+      name: "Power BI",
+    icon: powerbi,
+  },  
   {
     name: "React JS",
     icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
+  }, 
+   {
     name: "git",
     icon: git,
   },
@@ -111,17 +94,38 @@ const technologies = [
     name: "figma",
     icon: figma,
   },
-  {
-    name: "docker",
-    icon: docker,
-  },
+  //   {
+  //   name: "HTML 5",
+  //   icon: html,
+  // },
+  // {
+  //   name: "CSS 3",
+  //   icon: css,
+  // },
+  // {
+  //   name: "JavaScript",
+  //   icon: javascript,
+  // },
+  // {
+  //   name: "TypeScript",
+  //   icon: typescript,
+  // },
+  // {
+  //   name: "Tailwind CSS",
+  //   icon: tailwind,
+  // },
+  // {
+  //   name: "Three JS",
+  //   icon: threejs,
+  // },
+
 ];
 
 const experiences = [
   {
     title: "Full Stack Developer",
     company_name: "Business Intelligence Research Group, UNBC",
-    icon: meta, // Placeholder, ideally a custom icon for UNBC or research
+    icon: unbc, // Placeholder, ideally a custom icon for UNBC or research
     iconBg: "#383E56",
     date: "Jul. 2024 - Present", 
     points: [
@@ -135,7 +139,7 @@ const experiences = [
   {
      title: "Part-Time Associate",
     company_name: "TJX Canada",
-    icon: starbucks, // Placeholder, ideally a custom icon for TJX Canada
+    icon: tjx, 
     iconBg: "#E6DEDD",
     date: "Oct. 2022 - Mar. 2025", 
     points: [
@@ -147,7 +151,7 @@ const experiences = [
 ];
 
 
-export const projectDiscription = "My projects showcase my diverse skill set and hands-on experience in solving complex problems. Each entry provides a glimpse into my development process, highlighting the technologies used and the impact of the solution. These examples reflect my commitment to practical application and innovation in software development.";
+export const projectDiscription = " Some Discriptions";
 
 const projects = [
   {
@@ -156,19 +160,19 @@ const projects = [
       "Developed a fully functional cribbage game utilizing a Java GUI, showcasing object-oriented programming and user interface design. ",
     tags: [
       {
-        name: "react",
+        name: "Java",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "Java GUI",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "GIT",
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
+    image: unbc,
     source_code_link: "https://github.com/",
   },
   {
@@ -177,19 +181,16 @@ const projects = [
       "An end-to-end database system built for managing and optimizing airline operations, demonstrating proficiency in database management principles and practical application. ",
     tags: [
       {
-        name: "react",
+        name: "SSMS",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "SQL",
         color: "green-text-gradient",
       },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
+    
     ],
-    image: jobit,
+    image: unbc,
     source_code_link: "https://github.com/",
   },
   {
@@ -198,19 +199,19 @@ const projects = [
       "A machine learning model developed to classify text as either AI-generated or human-written, leveraging advanced ML and NLP techniques. ",
     tags: [
       {
-        name: "nextjs",
+        name: "Python",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "pyTourch",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "TensorFlow",
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
+    image:  unbc,
     source_code_link: "https://github.com/",
   },
    {
@@ -219,19 +220,16 @@ name: "Path Finding Algorithm with Q-Learning",
       "Developed a concurrent algorithm to optimize path planning, showcasing expertise in advanced algorithmic design and reinforcement learning. ",
       tags: [
       {
-        name: "nextjs",
+        name: "Java",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "GIT",
         color: "green-text-gradient",
       },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
+  
     ],
-    image: tripguide,
+    image: unbc,
     source_code_link: "https://github.com/",
   },   {
  name: "Healthcare BI Dashboard",
@@ -239,19 +237,12 @@ name: "Path Finding Algorithm with Q-Learning",
       "Designed a comprehensive business intelligence dashboard using Power BI to visualize and analyze healthcare data, providing actionable insights. ",
     tags: [
       {
-        name: "nextjs",
+        name: "Power BI",
         color: "blue-text-gradient",
       },
-      {
-        name: "supabase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
+    
     ],
-    image: tripguide,
+    image: unbc,
     source_code_link: "https://github.com/",
   },
    {
@@ -260,19 +251,19 @@ name: "Path Finding Algorithm with Q-Learning",
       "Engineered a hardware hacking tool using Raspberry Pi Pico, showcasing practical skills in cybersecurity and embedded systems. ",
   tags: [
       {
-        name: "nextjs",
+        name: "Ducky Script",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "Power Shell",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "Python",
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
+    image: unbc,
     source_code_link: "https://github.com/",
   },  
 ];

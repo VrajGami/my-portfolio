@@ -3,19 +3,38 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { PointMaterial, Preload } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
 import * as THREE from "three";
+import { rand } from "three/tsl";
 
-// Static background stars
-const Stars = () => {
+const Stars = ({ mouse, lastMoveTime }) => {
   const ref = useRef();
   const numPoints = 5000;
   const sphere = random.inSphere(new Float32Array(numPoints * 3), { radius: 1.2 });
-  
+  const targetRotation = useRef(new THREE.Vector3(0, 0, Math.PI / 4));
+  const idleSpeed = 0.0005;
+
   useFrame(() => {
-    if (ref.current) ref.current.rotation.y += 0.0005;
+    const now = Date.now();
+    const timeSinceMove = now - lastMoveTime.current;
+    const isIdle = timeSinceMove > 100;
+
+    if (!ref.current) return;
+
+    if (isIdle) {
+      ref.current.rotation.y += idleSpeed;
+    } else {
+      const targetX = (mouse.current.y / window.innerHeight - 0.5) * Math.PI / 16;
+      const targetY = (mouse.current.x / window.innerWidth - 0.5) * Math.PI / 16;
+
+      targetRotation.current.x += (targetX - targetRotation.current.x) * 0.05;
+      targetRotation.current.y += (targetY - targetRotation.current.y) * 0.05;
+
+      ref.current.rotation.x = targetRotation.current.x;
+      ref.current.rotation.y = targetRotation.current.y;
+    }
   });
 
   return (
-    <group rotation={[0, 0, Math.PI / 4]}>
+    <group>
       <points ref={ref}>
         <bufferGeometry>
           <bufferAttribute
@@ -61,7 +80,13 @@ const ShootingStar = ({ id, startPos, speed, onDisappear }) => {
   }, []);
 
   useFrame(() => {
-    if (!starRef.current || !trailRef.current) return;
+if (
+    !starRef.current ||
+    !trailRef.current ||
+    !trailRef.current.geometry ||
+    !trailRef.current.geometry.attributes.position ||
+    !trailRef.current.geometry.attributes.position.array
+  ) return;
 
     starRef.current.position.x += speed.x;
     starRef.current.position.y += speed.y;
@@ -146,6 +171,19 @@ const ShootingStarsManager = () => {
 
 // Main Canvas Component
 const StarsCanvas = () => {
+    const mouse = useRef({ x: 0, y: 0 });
+  const lastMoveTime = useRef(Date.now());
+      useEffect(()=> {
+        const handleMouseMove = (event) => {
+             mouse.current = { x: event.clientX, y: event.clientY };
+              lastMoveTime.current = Date.now(); 
+        }
+
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+      }, [])
+
+
   return (
     <Canvas
       style={{
@@ -160,7 +198,7 @@ const StarsCanvas = () => {
       camera={{ position: [0, 0, 1] }}
     >
       <Suspense fallback={null}>
-        <Stars />
+        <Stars  mouse={mouse} lastMoveTime={lastMoveTime}/>
         <ShootingStarsManager />
       </Suspense>
       <Preload all />
