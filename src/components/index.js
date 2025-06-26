@@ -9,6 +9,7 @@ import ProjectDetailsPage from './ProjectDetailsPage';
 import Contact from "./Contact";
 import CanvasLoader from "./Loader";
 import ProjectCard from './ProjectCard';
+import MyLife from './Mylife';
 
 export {
   Hero,
@@ -25,4 +26,5 @@ export {
   StarsCanvas,
   ProjectCard,
 ProjectDetailsPage,
+MyLife,
 };

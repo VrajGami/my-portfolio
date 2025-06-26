@@ -26,40 +26,65 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
   };
 
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <Tilt options={{
-        max: 45,
-        speed: 450,
-        scale: 1,
-      }} className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full">
-        <div className='relative w-full  h-[200px] sm:h-[230px]'>
-          <img src={image} alt={name} className='w-full h-full object-cover rounded-2xl' />
-          <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
-            <div onClick={() => window.open(source_code_link, "_blank")} className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'>
-                <img src={github} alt='github' className='w-1/2 h-1/2 object-contain'/>
+   
+    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)} className="w-full sm:w-[320px]">
+      <Tilt
+        options={{
+          max: 15,
+          scale: 1.02,
+          speed: 500,
+          transition: true,
+        }}
+        className="h-full w-full"
+      >
+
+        <div className="animated-border-wrapper rounded-2xl p-[1.5px] h-full">
+          <div className="bg-tertiary rounded-[14px] p-3 flex flex-col h-full">
+
+
+            <div className='relative w-full h-[160px]'>
+              <img src={image} alt={name} className='w-full h-full object-cover rounded-xl' />
+              <div className='absolute inset-0 flex justify-end m-2'>
+                <div
+                  onClick={() => window.open(source_code_link, "_blank")}
+                  className='black-gradient w-9 h-9 rounded-full flex justify-center items-center cursor-pointer transition-transform hover:scale-110'
+                >
+                  <img src={github} alt='github' className='w-1/2 h-1/2 object-contain' />
+                </div>
+              </div>
             </div>
+
+      
+            <div className='mt-3 flex-grow'>
+              <h3 className='text-white font-bold text-[20px]'>{name}</h3>
+              <p className='mt-1 text-secondary text-[13px] line-clamp-4'>{description}</p>
+            </div>
+
+
+            <div className='mt-2 flex flex-wrap gap-1'>
+              {tags.map((tag) => (
+                <p key={tag.name} className={`text-[12px] px-2 py-0.5 bg-black/20 rounded-full ${tag.color}`}>
+                  #{tag.name}
+                </p>
+              ))}
+            </div>
+
+    
+            <div className='mt-4 flex justify-center'>
+             <motion.button onClick={handleMoreInfoClick} whileHover={{scale : 1.1 }} whileTap= {{scale : 0.9 }} transition={{type : "spring", stiffness : 400, damping : 17}}
+               className='filter-sphere relative inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white rounded-full cursor-pointer bg-white/10 backdrop-blur-rm border-2
+               border-white/20 shadow-2xl shadow-black/40'
+               >
+                 <span className='z-10'> More Info </span>
+           
+               </motion.button>
+            </div>
+
           </div>
-        </div>
-
-        <div className='mt-5'>
-            <h3 className='text-white font-bold text-[24px]'>{name}</h3>
-            <p className='mt-2 text-secondary text-[14px]'>{description}</p>
-        </div>
-
-        <div className='mt-4 flex flex-wrap gap-2'> { tags.map((tag)=>(
-          <p key={tag.name} className={`text-[14px] ${tag.color}`}> #{tag.name}</p>
-        )) }
-        </div>
-        <div className='mt-6'>
-          <button
-            onClick={handleMoreInfoClick}
-            className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-full'
-          >
-            More Info
-          </button>
         </div>
       </Tilt>
     </motion.div>
+    
   )
 }
 

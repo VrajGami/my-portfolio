@@ -5,51 +5,35 @@ import {styles} from '../styles';
 import { services,aboutContent } from '../constants';
 import {fadeIn, textVariant } from '../utils/motion';
 import { SectionWrapper } from '../hoc';
-
-const ServiceCard= ({index, title, icon}) =>{
-  return (
-   <Tilt className="xs:w-[250px] w-full">
-      <motion.div
-    variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
-      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
-      >
-        <div options={{
-          max: 45,
-          scale : 1,
-          speed : 540,
-        }} className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justfy-evenly items-center flex-col'>
-
-        <img src={icon} alt={title}
-        className='w-16 h-16 object-contain'
-        /> <h3 className='text-white text-[20px] font-bold text-center'>{title}</h3>
-        </div>
-      </motion.div>
-
-   </Tilt>
-
-  );
-}
+import { useNavigate } from 'react-router-dom'; 
 
 const About = () => {
+   const navigate = useNavigate(); 
+      const handleMoreInfoClick = () => {
+    navigate('/myLife', {});
+  };
   return (
 <>
 <motion.div varients={textVariant()}>
-    <p className={styles.sectionSubText}>Introduction</p>
+    <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 font-semibold" >Introduction</p>
     <h2 className={styles.sectionHeadText}> Overview</h2>
 </motion.div>
 <motion.p
 variants={fadeIn("","",0.1,1)}
-className='mt-4 text-secodary text-[17px] max-w-3xl leading-[30px] '
+className='mt-4 text-secodary text-[17px] leading-[30px] '
 >
   {aboutContent}
 </motion.p>
+<div className='mt-10 flex justify-center'>
+    <motion.button onClick={handleMoreInfoClick} whileHover={{scale : 1.1 }} whileTap= {{scale : 0.9 }} transition={{type : "spring", stiffness : 400, damping : 17}}
+    className='filter-sphere relative inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white rounded-full cursor-pointer bg-white/10 backdrop-blur-rm border-2
+    border-white/20 shadow-2xl shadow-black/40'
+    >
+      <span className='z-10'> More Info </span>
 
-<div className='mt-20 flex flex-wrap gap-10'>
-    {services.map((service, index)=>(
-      <ServiceCard key={service.title} index={index} {...service}/>
-
-    ))}
+    </motion.button>
 </div>
+
 </>
   );
 };

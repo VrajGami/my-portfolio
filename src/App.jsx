@@ -1,19 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { About, Contact, Experience, Hero, Navbar, Tech, Works, StarsCanvas } from './components';
-import ProjectDetailsPage from './components/ProjectDetailsPage'; // Make sure this path is correct
+import { About, Contact, Experience, Hero, Navbar, Tech, Works, StarsCanvas, MyLife, ProjectDetailsPage } from './components';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="relative z-0 bg-primary">
-        <Navbar />
+       
 
         <Routes>
           <Route
             path="/"
             element={
               <>
-                <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+                <div className=" bg-cover bg-no-repeat bg-center">
+                   <Navbar />
                   <Hero />
                 </div>
                 <About />
@@ -29,6 +29,7 @@ function App() {
           />
 
           <Route path="/project-details" element={<ProjectDetailsPage />} />
+            <Route path="/myLife" element={<MyLife />} />
         </Routes>
       </div>
     </BrowserRouter>

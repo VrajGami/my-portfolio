@@ -3,14 +3,8 @@ import {
   backend,
   creator,
   web,
-  javascript,
-  typescript,
-  html,
-  css,
   reactjs,
 powerbi,
-  tailwind,
-
 flutter,
 angular,
   git,
@@ -19,13 +13,9 @@ dotnet,
 aws,
 unbc,
 tjx,
-
-
-  threejs,
 } from "../assets";
 
-export const aboutContent = "Small intro or first impression";
-
+export const aboutContent = "I'm a curious soul who thrives at the crossroads of code and adventure. By day, I'm a computer scientist and software developer, crafting digital solutions with logic and creativity. Beyond the screen, you'll find me exploring nature's trails, chasing sunsets, or diving into a new sport with a grin. I'm a passionate traveler, always chasing the next story from a far-off corner of the world. And when I'm not building or wandering, I'm giving back through volunteering, connecting with communities, and making a difference one step at a time. I'm here to create, explore, and inspire join me on the journey!";
 
 export const navLinks = [
   {
@@ -94,30 +84,7 @@ const technologies = [
     name: "figma",
     icon: figma,
   },
-  //   {
-  //   name: "HTML 5",
-  //   icon: html,
-  // },
-  // {
-  //   name: "CSS 3",
-  //   icon: css,
-  // },
-  // {
-  //   name: "JavaScript",
-  //   icon: javascript,
-  // },
-  // {
-  //   name: "TypeScript",
-  //   icon: typescript,
-  // },
-  // {
-  //   name: "Tailwind CSS",
-  //   icon: tailwind,
-  // },
-  // {
-  //   name: "Three JS",
-  //   icon: threejs,
-  // },
+
 
 ];
 
@@ -125,11 +92,11 @@ const experiences = [
   {
     title: "Full Stack Developer",
     company_name: "Business Intelligence Research Group, UNBC",
-    icon: unbc, // Placeholder, ideally a custom icon for UNBC or research
+    icon: unbc,
     iconBg: "#383E56",
     date: "Jul. 2024 - Present", 
     points: [
-      "Collaborated with a cross-functional team to develop the D-CGA@Home & Hero Home Care application, assisting caregivers and physicians in geriatric assessments. ",
+      "Collaborated with a cross-functional team to develop the  Care application, assisting caregivers and physicians in geriatric assessments. ",
       "Contributed to the design and implementation of a multi-language mobile app (Flutter), a web app (Angular), and a .NET backend service with optimal AWS cloud deployment. ",
       "Integrated machine learning to generate personalized care plans for elderly patients. ",
       "Developed web components and managed cloud deployment for 'Accessible UNBC', a university-wide initiative to enhance campus accessibility and user experience. ",
