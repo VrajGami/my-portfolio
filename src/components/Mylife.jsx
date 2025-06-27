@@ -4,12 +4,38 @@ import ConstellationCanvas from './canvas/Constilation'
 
 
 const storySections = [
-  { title: 'Architect of Logic',  description: 'Transforming ideas into elegant code, I architect solutions that scale and inspire innovation.' },
-  { title: 'Competitive Spirit',  description: 'From badminton courts to chessboards, my drive for excellence sharpens strategy and teamwork.' },
-  { title: 'Intrepid Explorer', description: 'Every journey fuels my creativity I seek new horizons to broaden my mind and spark fresh ideas.' },
-  { title: 'Community Builder',  description: 'Leading projects with heart, I unite teams and give back through volunteer work that makes a difference.' },
-  { title: 'Visionary Creator',  description: 'Blending art and technology, I craft interfaces that delight users and tell compelling stories.' },
-  { title: 'Relentless Learner', description: 'Driven by curiosity, I dive into new frameworks, languages, and paradigms every single day.' },
+  { 
+    title: 'Architect of Logic', 
+    description: "As a computer scientist and software developer, I thrive on transforming complex ideas into elegant, scalable code. I'm passionate about crafting digital solutions that not only work flawlessly but also inspire innovation and solve real-world problems." 
+  },
+  { 
+    title: 'Competitive Spirit', 
+    description: "Whether I'm on the badminton court, deep in a chess match, or tackling a challenging coding puzzle, my drive for excellence is unwavering. This competitive edge sharpens my strategic thinking and collaborative spirit, pushing me to always improve." 
+  },
+  { 
+    title: 'Intrepid Explorer', 
+    description: "Every journey I embark on, from hiking scenic trails to chasing vibrant sunsets, fuels my creativity. I'm an avid traveler, constantly seeking new horizons and far-off corners of the world to broaden my mind and spark fresh ideas." 
+  },
+  { 
+    title: 'Community Builder', 
+    description: "Leading projects with heart, I believe in the power of unity. I'm dedicated to bringing teams together and actively give back through volunteer work, striving to make a tangible difference in communities, one step at a time." 
+  },
+  { 
+    title: 'Visionary Creator', 
+    description: "Blending the worlds of art and technology, I'm driven to craft interfaces and experiences that delight users and tell compelling stories. My focus is on intuitive design that resonates and leaves a lasting impact." 
+  },
+  { 
+    title: 'Relentless Learner', 
+    description: "Fueled by insatiable curiosity, I dive headfirst into new frameworks, programming languages, and paradigms daily. The tech landscape is always evolving, and I'm committed to continuous growth and mastering the tools of tomorrow." 
+  },
+  {
+    title: 'Nature Enthusiast',
+    description: "Beyond the screen, I find solace and inspiration in nature. You'll often find me exploring hiking trails, embracing the tranquility of the outdoors, and recharging amidst the beauty of the natural world."
+  },
+  {
+    title: 'Adventure Seeker',
+    description: "From diving into new sports to exploring unfamiliar cities, I'm always up for an adventure. I believe that stepping out of your comfort zone is key to personal growth and discovering new passions."
+  }
 ];
 const blobVariants = {
   animate: {

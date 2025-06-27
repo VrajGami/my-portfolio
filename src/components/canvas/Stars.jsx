@@ -3,7 +3,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { PointMaterial, Preload } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
 import * as THREE from "three";
-import { rand } from "three/tsl";
+
 
 const Stars = ({ mouse, lastMoveTime }) => {
   const ref = useRef();
