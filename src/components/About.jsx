@@ -1,8 +1,7 @@
-import React from 'react';
-import { Tilt } from 'react-tilt'; 
-import {motion, scale} from 'framer-motion';
+
+import {motion} from 'framer-motion';
 import {styles} from '../styles';
-import { services,aboutContent } from '../constants';
+import { aboutContent } from '../constants';
 import {fadeIn, textVariant } from '../utils/motion';
 import { SectionWrapper } from '../hoc';
 import { useNavigate } from 'react-router-dom'; 
@@ -19,11 +18,32 @@ const About = () => {
     <h2 className={styles.sectionHeadText}> Overview</h2>
 </motion.div>
 <motion.p
-variants={fadeIn("","",0.1,1)}
-className='mt-4 text-secodary text-[17px] leading-[30px] '
+  variants={fadeIn("", "", 0.2, 1)}
+  initial="hidden"
+  animate="show"
+  whileHover={{ scale: 1.02 }}
+  transition={{ type: "spring", stiffness: 100, damping: 15 }}
+  className="
+    w-full
+    mt-6
+    text-slate-200
+    text-[18px]
+    md:text-[20px]
+    leading-[32px]
+    md:leading-[36px]
+    font-light
+    tracking-wide
+    px-4
+    sm:px-6
+    md:px-8
+    lg:px-12
+    hover:text-white
+  "
 >
   {aboutContent}
 </motion.p>
+
+
 <div className='mt-10 flex justify-center'>
     <motion.button onClick={handleMoreInfoClick} whileHover={{scale : 1.1 }} whileTap= {{scale : 0.9 }} transition={{type : "spring", stiffness : 400, damping : 17}}
     className='filter-sphere relative inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white rounded-full cursor-pointer bg-white/10 backdrop-blur-rm border-2

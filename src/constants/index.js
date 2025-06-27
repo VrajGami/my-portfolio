@@ -1,8 +1,11 @@
 import {
-  mobile,
-  backend,
-  creator,
-  web,
+aivshuman,
+cribbage,
+powerbiproject,
+rasbarrypi,
+Qlearning,
+Colab,
+gds,
   reactjs,
 powerbi,
 flutter,
@@ -32,27 +35,12 @@ export const navLinks = [
   },
 ];
 
-const services = [
-  {
-    title: "Full Stack Developer",
-    icon: web,
-  },
-  {
-    title: "Mobile App Developer",
-    icon: mobile,
-  },
-  {
-    title: "Backend Developer",
-    icon: backend,
-  },
-  {
-    title: "Cloud",
-    icon: creator,
-  },
-];
 
 const technologies = [
-
+  {
+      name: "Google Colab",
+    icon: Colab,
+  },
    {
       name: "Angular",
     icon: angular,
@@ -91,18 +79,21 @@ const technologies = [
 const experiences = [
   {
     title: "Full Stack Developer",
-    company_name: "Business Intelligence Research Group, UNBC",
+    company_name: "Business Intelligence Research Group",
     icon: unbc,
     iconBg: "#383E56",
-    date: "Jul. 2024 - Present", 
+    date: "Jul. 2024 - Present",
     points: [
-      "Collaborated with a cross-functional team to develop the  Care application, assisting caregivers and physicians in geriatric assessments. ",
-      "Contributed to the design and implementation of a multi-language mobile app (Flutter), a web app (Angular), and a .NET backend service with optimal AWS cloud deployment. ",
-      "Integrated machine learning to generate personalized care plans for elderly patients. ",
-      "Developed web components and managed cloud deployment for 'Accessible UNBC', a university-wide initiative to enhance campus accessibility and user experience. ",
-      "Engineered a robust tool for managing and assigning faculty workloads, efficiently allocating assignment responsibilities. ",
+      "Worked across multiple domains including healthcare, campus accessibility, and academic operations such as faculty scheduling and reporting.",
+      "In the healthcare domain, contributed to building an intelligent application that assists caregivers and physicians with patient assessments and generates personalized care plans using integrated machine learning capabilities.",
+      "In the accessibility domain, developed web components and interfaces aimed at improving the inclusiveness and usability of university platforms for all users.",
+      "In academic operations, engineered a tool to streamline the management of faculty workloads, supporting efficient allocation and reporting of teaching assignments.",
+      "Developed and maintained cross-platform mobile applications using Flutter (for both Android and iOS), responsive web applications using Angular, and scalable backend services with .NET Core and SQL Server.",
+      "Deployed production-ready applications to AWS using various PaaS services, ensuring secure, maintainable, and high-performance cloud architecture.",
     ],
   },
+
+
   {
      title: "Part-Time Associate",
     company_name: "TJX Canada",
@@ -112,127 +103,86 @@ const experiences = [
     points: [
       "Awarded Employee of the Month for exceptional customer service. ",
       "Managed product placements and efficiently handled cashier operations at Winners, Marshalls, and HomeSense. ",
+      "Contributed to increased store sales through strategic and intelligent product management."
     ],
   },
  
 ];
 
 
-export const projectDiscription = " Some Discriptions";
+export const projectDiscription = "A curated collection of projects demonstrating a strong foundation in software engineering, machine learning, and data analytics. These projects highlight my ability to bridge theoretical concepts and practical application across diverse technology stacks.";
 
 const projects = [
-  {
-   name: "Cribbage Game (Java GUI)",
+ {
+    name: "GDS Mobile Application",
     description:
-      "Developed a fully functional cribbage game utilizing a Java GUI, showcasing object-oriented programming and user interface design. ",
+      "A cross-platform Flutter app that lets older adults self-administer the Geriatric Depression Scale (GDS) questionnaire. Users answer 15 yes/no items, and the app instantly calculates their depression score, displays personalized insights, and highlights areas of concern. Historical results are charted over time so users (and their caregivers) can track mood trends. An admin portal offers secure user management, aggregate reporting, PDF export of individual assessments, and role-based access to monitor overall program effectiveness.",
     tags: [
-      {
-        name: "Java",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Java GUI",
-        color: "green-text-gradient",
-      },
-      {
-        name: "GIT",
-        color: "pink-text-gradient",
-      },
+      { name: "Flutter", color: "blue-text-gradient" },
+      { name: ".NET", color: "green-text-gradient" },
+      { name: "SSMS", color: "pink-text-gradient" },
     ],
-    image: unbc,
-    source_code_link: "https://github.com/",
+    image: gds,
+    source_code_link: "https://github.com/VrajGami/gdsapplication.git",
   },
   {
-   name: "Airline Operations Database System",
-    description:
-      "An end-to-end database system built for managing and optimizing airline operations, demonstrating proficiency in database management principles and practical application. ",
-    tags: [
-      {
-        name: "SSMS",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "SQL",
-        color: "green-text-gradient",
-      },
-    
-    ],
-    image: unbc,
-    source_code_link: "https://github.com/",
-  },
-  {
-  name: "AI vs. Human Text Classification Model",
-    description:
-      "A machine learning model developed to classify text as either AI-generated or human-written, leveraging advanced ML and NLP techniques. ",
-    tags: [
-      {
-        name: "Python",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "pyTourch",
-        color: "green-text-gradient",
-      },
-      {
-        name: "TensorFlow",
-        color: "pink-text-gradient",
-      },
-    ],
-    image:  unbc,
-    source_code_link: "https://github.com/",
-  },
-   {
-name: "Path Finding Algorithm with Q-Learning",
-    description:
-      "Developed a concurrent algorithm to optimize path planning, showcasing expertise in advanced algorithmic design and reinforcement learning. ",
-      tags: [
-      {
-        name: "Java",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "GIT",
-        color: "green-text-gradient",
-      },
-  
-    ],
-    image: unbc,
-    source_code_link: "https://github.com/",
-  },   {
- name: "Healthcare BI Dashboard",
-    description:
-      "Designed a comprehensive business intelligence dashboard using Power BI to visualize and analyze healthcare data, providing actionable insights. ",
-    tags: [
-      {
-        name: "Power BI",
-        color: "blue-text-gradient",
-      },
-    
-    ],
-    image: unbc,
-    source_code_link: "https://github.com/",
-  },
-   {
- name: "Bad USB with Raspberry Pi Pico",
-    description:
-      "Engineered a hardware hacking tool using Raspberry Pi Pico, showcasing practical skills in cybersecurity and embedded systems. ",
+  name: "Pathfinding Algorithm with Q-Learning",
+  description:
+    "Implemented a reinforcement learning solution for path optimization using Q-Learning. The project focuses on concurrent algorithm design, efficient exploration, and convergence strategies for dynamic environments.",
   tags: [
-      {
-        name: "Ducky Script",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Power Shell",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Python",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: unbc,
-    source_code_link: "https://github.com/",
-  },  
+    { name: "Java", color: "blue-text-gradient" },
+    { name: "GIT", color: "green-text-gradient" },
+  ],
+  image: Qlearning,
+  source_code_link: "https://github.com/VrajGami/Machine-Learning-QLearning.git",
+},
+{
+  name: "Cribbage Game (Java GUI)",
+  description:
+    "Developed a complete Cribbage card game with a user-friendly graphical interface using Java Swing. Demonstrates strong object-oriented programming principles and user interaction handling in desktop applications.",
+  tags: [
+    { name: "Java", color: "blue-text-gradient" },
+    { name: "Java GUI", color: "green-text-gradient" },
+    { name: "GIT", color: "pink-text-gradient" },
+  ],
+  image: cribbage,
+  source_code_link: "https://github.com/Skyring100/Need-More-Caffeine-Cribbage.git",
+},
+{
+  name: "AI vs. Human Text Classification Model",
+  description:
+    "Built a machine learning classifier to distinguish between human-written and AI-generated text using advanced NLP and deep learning techniques, including LSTM and CNN models developed in PyTorch.",
+  tags: [
+    { name: "Python", color: "blue-text-gradient" },
+    { name: "PyTorch", color: "green-text-gradient" },
+    { name: "TensorFlow", color: "pink-text-gradient" },
+  ],
+  image: aivshuman,
+  source_code_link: "https://github.com/VrajGami/Ai-vs-Human-Text-classification.git",
+},
+{
+  name: "Healthcare BI Dashboard",
+  description:
+    "Created a dynamic business intelligence dashboard to visualize and analyze healthcare datasets, enabling data-driven decision-making through interactive Power BI visualizations and metrics.",
+  tags: [
+    { name: "Power BI", color: "blue-text-gradient" },
+  ],
+  image: powerbiproject,
+  source_code_link: "https://github.com/VrajGami/Healthcare-Dashboard.git",
+},
+{
+  name: "Bad USB with Raspberry Pi Pico",
+  description:
+    "Engineered a stealthy USB-based cybersecurity tool using Raspberry Pi Pico and CircuitPython to inject payloads, perform reconnaissance on Windows systems, and log sensitive data — all mimicking keyboard input behavior.",
+  tags: [
+    { name: "Ducky Script", color: "blue-text-gradient" },
+    { name: "PowerShell", color: "green-text-gradient" },
+    { name: "Python", color: "pink-text-gradient" },
+  ],
+  image: rasbarrypi,
+  source_code_link: "https://github.com/VrajGami/Bad-USB",
+},
+
 ];
 
-export { services, technologies, experiences, projects };
+export { technologies, experiences, projects };
