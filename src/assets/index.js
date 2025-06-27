@@ -20,6 +20,7 @@ import powerbiproject from "./projects/power BI.png";
 import rasbarrypi from "./projects/rasbarrypi.png";
 import Qlearning from "./projects/QLearning.png";
 import gds from "./projects/gds.png";
+import ssms from "./projects/ssms.jpg";
 
 import reactjs from "./tech/reactjs.png";
 import redux from "./tech/redux.png";
@@ -46,7 +47,7 @@ Qlearning,
 Colab,
 gds,
   logo,
-
+ssms,
   creator,
   mobile,
   web,

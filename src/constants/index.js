@@ -11,6 +11,7 @@ powerbi,
 flutter,
 angular,
   git,
+  ssms,
   figma,
 dotnet,
 aws,
@@ -37,10 +38,7 @@ export const navLinks = [
 
 
 const technologies = [
-  {
-      name: "Google Colab",
-    icon: Colab,
-  },
+ 
    {
       name: "Angular",
     icon: angular,
@@ -52,9 +50,18 @@ const technologies = [
    {
       name: ".Net Core",
     icon: dotnet,
-  }, {
+  },
+  {
+      name: "SSMS",
+    icon: ssms,
+  },
+  {
       name: "AWS",
     icon: aws,
+  },
+   {
+      name: "Google Colab",
+    icon: Colab,
   },
     {
       name: "Power BI",
@@ -84,12 +91,12 @@ const experiences = [
     iconBg: "#383E56",
     date: "Jul. 2024 - Present",
     points: [
+            "Developed and maintained cross-platform mobile applications using Flutter (for both Android and iOS), responsive web applications using Angular, and scalable backend services with .NET Core and SQL Server.",
+      "Deployed production-ready applications to AWS using various PaaS services, ensuring secure, maintainable, and high-performance cloud architecture.",
       "Worked across multiple domains including healthcare, campus accessibility, and academic operations such as faculty scheduling and reporting.",
       "In the healthcare domain, contributed to building an intelligent application that assists caregivers and physicians with patient assessments and generates personalized care plans using integrated machine learning capabilities.",
-      "In the accessibility domain, developed web components and interfaces aimed at improving the inclusiveness and usability of university platforms for all users.",
+      "In the accessibility domain, developed web components and interfaces aimed at improving the inclusiveness and usability of university campus for all users.",
       "In academic operations, engineered a tool to streamline the management of faculty workloads, supporting efficient allocation and reporting of teaching assignments.",
-      "Developed and maintained cross-platform mobile applications using Flutter (for both Android and iOS), responsive web applications using Angular, and scalable backend services with .NET Core and SQL Server.",
-      "Deployed production-ready applications to AWS using various PaaS services, ensuring secure, maintainable, and high-performance cloud architecture.",
     ],
   },
 
