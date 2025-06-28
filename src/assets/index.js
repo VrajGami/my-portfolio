@@ -37,7 +37,6 @@ import aws from "./tech/aws.png";
 import tjx from "./company/tjx.jpg";
 
 
-
 export {
 aivshuman,
 cribbage,

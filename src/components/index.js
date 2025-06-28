@@ -10,6 +10,7 @@ import Contact from "./Contact";
 import CanvasLoader from "./Loader";
 import ProjectCard from './ProjectCard';
 import MyLife from './Mylife';
+import Certificate from './Certificates';
 
 export {
   Hero,
@@ -19,6 +20,7 @@ export {
   Experience,
   Works,
   Contact,
+  Certificate,
   CanvasLoader,
   EarthCanvas, 
   BallCanvas, 

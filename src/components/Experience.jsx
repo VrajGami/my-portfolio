@@ -27,7 +27,7 @@ const ExperienceCard = ({ experience }) => (
     }
     iconStyle={{
       background: experience.iconBg,
-      boxShadow: `0 0 15px #a78bfa, 0 0 5px #fff`,
+      boxShadow: `0 0 15px #fff, 0 0 15px #fff`,
     }}
     icon={
       <div className="flex justify-center items-center w-full h-full">

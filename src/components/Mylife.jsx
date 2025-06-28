@@ -1,152 +1,135 @@
-import { useEffect, useRef } from 'react';
+import { Suspense, useEffect, useRef, useMemo } from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { useGLTF, Html, Stars } from '@react-three/drei';
+import * as THREE from 'three';
 import { motion } from 'framer-motion';
-import ConstellationCanvas from './canvas/Constilation'
+
 
 
 const storySections = [
-  { 
-    title: 'Architect of Logic', 
-    description: "As a computer scientist and software developer, I thrive on transforming complex ideas into elegant, scalable code. I'm passionate about crafting digital solutions that not only work flawlessly but also inspire innovation and solve real-world problems." 
-  },
-  { 
-    title: 'Competitive Spirit', 
-    description: "Whether I'm on the badminton court, deep in a chess match, or tackling a challenging coding puzzle, my drive for excellence is unwavering. This competitive edge sharpens my strategic thinking and collaborative spirit, pushing me to always improve." 
-  },
-  { 
-    title: 'Intrepid Explorer', 
-    description: "Every journey I embark on, from hiking scenic trails to chasing vibrant sunsets, fuels my creativity. I'm an avid traveler, constantly seeking new horizons and far-off corners of the world to broaden my mind and spark fresh ideas." 
-  },
-  { 
-    title: 'Community Builder', 
-    description: "Leading projects with heart, I believe in the power of unity. I'm dedicated to bringing teams together and actively give back through volunteer work, striving to make a tangible difference in communities, one step at a time." 
-  },
-  { 
-    title: 'Visionary Creator', 
-    description: "Blending the worlds of art and technology, I'm driven to craft interfaces and experiences that delight users and tell compelling stories. My focus is on intuitive design that resonates and leaves a lasting impact." 
-  },
-  { 
-    title: 'Relentless Learner', 
-    description: "Fueled by insatiable curiosity, I dive headfirst into new frameworks, programming languages, and paradigms daily. The tech landscape is always evolving, and I'm committed to continuous growth and mastering the tools of tomorrow." 
-  },
-  {
-    title: 'Nature Enthusiast',
-    description: "Beyond the screen, I find solace and inspiration in nature. You'll often find me exploring hiking trails, embracing the tranquility of the outdoors, and recharging amidst the beauty of the natural world."
-  },
-  {
-    title: 'Adventure Seeker',
-    description: "From diving into new sports to exploring unfamiliar cities, I'm always up for an adventure. I believe that stepping out of your comfort zone is key to personal growth and discovering new passions."
-  }
+    { position: [0, 0, 0], title: 'Architect of Logic', description: "I thrive on transforming complex ideas into elegant, scalable code, crafting digital solutions that solve real-world problems." },
+    { position: [2.5, -0.5, -25], title: 'Competitive Spirit', description: "On the court or in a chess match, my competitive edge sharpens my strategic thinking and pushes me to always improve." },
+    { position: [-2.5, 0, -50], title: 'Intrepid Explorer', description: "Every journey, from scenic trails to far-off corners of the world, fuels my creativity and broadens my mind." },
+    { position: [2, -1, -75], title: 'Community Builder', description: "I believe in the power of unity, leading projects with heart and giving back to make a tangible difference." },
+    { position: [-3, 0.5, -100], title: 'Visionary Creator', description: "Blending art and technology, I craft interfaces and experiences that tell compelling stories and leave a lasting impact." },
+    { position: [0, 0, -125], title: 'Relentless Learner', description: "Fueled by insatiable curiosity, I'm committed to continuous growth and mastering the tools of tomorrow." }
 ];
-const blobVariants = {
-  animate: {
-    scale:    [1, 1.2, 1, 1.1, 1],
-    rotate:   [0, 10, -5, 15, 0],
-    opacity:  [0.6, 0.8, 0.7, 0.9, 0.6],
-    transition: { duration: 30, repeat: Infinity, ease: 'easeInOut' },
-  },
-};
 
-const cardVariants = {
-  offscreen: { opacity: 0, y: 100, scale: 0.8 },
-  onscreen:  {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { type: 'spring', bounce: 0.4, duration: 1 }
-  }
-};
-export default function MyLife() {
-   const scrollY = useRef(0);
- 
-  const scrollContainer = useRef(null);
 
-  useEffect(() => {
-  const el = scrollContainer.current;
-  const handleScroll = () => {
-    scrollY.current = el.scrollTop;
-  };
-  el?.addEventListener('scroll', handleScroll);
-  return () => el?.removeEventListener('scroll', handleScroll);
-}, []);
+function Experience({ scrollY, scrollContainer }) {
+  const { scene } = useGLTF('./need_some_space/scene.gltf'); 
+  const camera = useThree(state => state.camera);
+  const memoizedScene = useMemo(() => scene.clone(), [scene]);
 
+  useFrame((state, delta) => {
+
+    const scrollEl = scrollContainer.current;
+    if (!scrollEl) return;
+    const maxScroll = scrollEl.scrollHeight - scrollEl.clientHeight;
+    const scrollProgress = scrollY.current / maxScroll;
+
+    const sectionCount = storySections.length - 1;
+    const scrollOffset = scrollProgress * sectionCount;
+    const currentSectionIndex = Math.floor(scrollOffset);
+    const nextSectionIndex = Math.min(currentSectionIndex + 1, sectionCount);
+    const lerpFactor = scrollOffset - currentSectionIndex;
+
+    const currentPos = new THREE.Vector3(...storySections[currentSectionIndex].position);
+    const nextPos = new THREE.Vector3(...storySections[nextSectionIndex].position);
+    
+    const targetLookAt = new THREE.Vector3().lerpVectors(currentPos, nextPos, lerpFactor);
+    const targetCameraPos = new THREE.Vector3(targetLookAt.x, targetLookAt.y, targetLookAt.z + 10);
+
+    state.camera.position.lerp(targetCameraPos, delta * 1.0);
+    state.camera.lookAt(targetLookAt);
+  });
 
   return (
-    <div className="relative w-full h-screen font-sans text-white bg-transparent overflow-hidden">
-     <ConstellationCanvas
-  scrollY={scrollY}
-  scrollContainer={scrollContainer}
-/>
+    <>
+      <ambientLight intensity={0.6} />
+      <pointLight position={[50, 50, 50]} intensity={0.8} color="#8a2be2" />
+      <pointLight position={[-50, -50, -50]} intensity={0.8} color="#00ffff" />
+      <Stars radius={400} depth={50} count={10000} factor={10} saturation={0} fade speed={1} />
+      <primitive object={memoizedScene} scale={20} rotation={[0, Math.PI, 0]} />
+    </>
+  );
+}
 
- <motion.div
-        className="absolute top-[-25%] left-[-25%] w-[70vw] h-[70vw] bg-gradient-to-r from-indigo-500/50 to-purple-600/50 rounded-full mix-blend-screen blur-3xl pointer-events-none"
-        variants={blobVariants}
-        animate="animate"
-      />
-      <motion.div
-        className="absolute bottom-[-25%] right-[-25%] w-[70vw] h-[70vw] bg-gradient-to-tr from-pink-400/50 to-red-500/50 rounded-full mix-blend-screen blur-3xl pointer-events-none"
-        variants={blobVariants}
-        animate="animate"
-      />
-     <main
-  ref={scrollContainer}
-  className="relative z-10 h-full overflow-y-auto px-6 md:px-12"
->
-     <section className="flex flex-col items-center justify-center min-h-screen text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black mb-4 tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-gray-200 via-gray-100 to-white"
+// --- Main Page Component ---
+export default function MyLife() {
+  const scrollContainer = useRef(null);
+  const scrollY = useRef(0);
+
+  useEffect(() => {
+    const el = scrollContainer.current;
+    if (!el) return;
+    const handleScroll = () => {
+      scrollY.current = el.scrollTop;
+    };
+    el.addEventListener('scroll', handleScroll);
+    return () => el.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <div className="relative w-full h-screen bg-[#050816] overflow-hidden font-sans">
+
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <Canvas shadows camera={{ position: [0, 0, 10], fov: 75 }}>
+          <Suspense fallback={null}>
+            <Experience scrollY={scrollY} scrollContainer={scrollContainer} />
+          </Suspense>
+        </Canvas>
+      </div>
+
+      <main ref={scrollContainer} className="relative z-10 h-full overflow-y-auto overflow-x-hidden">
+        
+
+        <section className="h-screen flex flex-col items-center justify-center text-center p-6">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-black mb-4 tracking-tighter"
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 via-gray-100 to-white">
-              A Glimpse Into
-            </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 via-gray-100 to-white">A Glimpse Into</span>
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-500">
-              My Universe
-            </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-500">My Universe</span>
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl text-gray-300 max-w-2xl"
           >
-           
+            Beyond the code and competition lies a universe of stories, passions, and adventures that shape who I am.
           </motion.p>
         </section>
 
+        {/* This container pushes the story sections down, creating the scroll height */}
+        <div className="relative w-full" style={{ height: `${storySections.length * 100}vh` }}>
+            {storySections.map((section, index) => (
+                <div key={index} className="h-screen flex items-center justify-center">
+                    <motion.div 
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ root: scrollContainer, amount: 0.5 }}
+                        transition={{ duration: 0.6 }}
+                        className="w-[30rem] max-w-[90vw] p-8 bg-slate-900/60 backdrop-blur-xl rounded-2xl border border-purple-400/30 shadow-2xl shadow-purple-900/50"
+                    >
+                         <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-cyan-300">
+                            {section.title}
+                        </h2>
+                        <p className="text-lg text-gray-300 leading-relaxed">{section.description}</p>
+                    </motion.div>
+                </div>
+            ))}
+        </div>
 
-              <section className="max-w-3xl mx-auto space-y-32 py-40">
-          {storySections.map((s, i) => (
-            <motion.div
-              key={i}
-              className="relative p-10 md:p-14 bg-transparent rounded-3xl border border-white/20 shadow-xl shadow-black/50"
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true, amount: 0.5 }}
-             
-            >
-            
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gray-200 to-gray-400">
-                {s.title}
-              </h2>
-              <p className="text-lg md:text-xl text-gray-300 leading-relaxed">{s.description}</p>
+        {/* Footer */}
+        <footer className="h-screen flex flex-col items-center justify-center text-center p-6">
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ root: scrollContainer, amount: 0.5 }} transition={{ duration: 1 }}>
+                <h3 className="text-4xl font-bold mb-4">The journey continues...</h3>
+                <p className="text-lg text-gray-400 mb-8">Let's connect and create something amazing together.</p>
+                <a href="#contact"
+                   className="inline-block bg-purple-600 text-white font-bold py-3 px-8 rounded-full hover:bg-purple-700 transition-colors duration-300 shadow-lg shadow-purple-500/30"
+                >
+                    Get In Touch
+                </a>
             </motion.div>
-          ))}
-        </section>
-
-
-
-        <footer className="text-center py-32">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
-            className="text-3xl font-semibold text-gray-400"
-          >
-            Thank you for exploring. The journey has only just begun.
-          </motion.p>
         </footer>
       </main>
     </div>
