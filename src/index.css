@@ -12,7 +12,7 @@
   scroll-behavior: smooth;
   color-scheme: dark;
 }
-/* In globals.css or index.css */
+
 
 .timeline::before {
   content: '';
@@ -247,5 +247,36 @@
     #00ff87  /* Green again to complete the cycle */
   );
   
+  animation: rotate-gradient 4s linear infinite;
+}
+
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* The keyframe animation that rotates the gradient */
+@keyframes rotate-gradient {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
+
+/* The class that applies the rotating conic gradient background */
+.animated-border-wrapper {
+  background: conic-gradient(
+    from var(--gradient-angle),
+    #00ff87, /* Green */
+    #00b4d8, /* Blue */
+    #ec008c, /* Pink */
+    #00b4d8, /* Blue */
+    #00ff87  /* Green again to complete the cycle */
+  );
+  
+  /* Applying the animation */
   animation: rotate-gradient 4s linear infinite;
 }
