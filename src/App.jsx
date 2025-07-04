@@ -3,7 +3,7 @@ import { Certificate, About, Contact, Experience, Hero, Navbar, Tech, Works, Sta
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/my-portfolio">
       <div className="relative z-0 bg-primary">
        
 
