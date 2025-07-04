@@ -2,6 +2,7 @@
   "name": "my-portfolio",
   "private": true,
   "version": "1.0.0",
+  "homepage" : "https://VrajGami.github.io/my-portfolio",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -28,8 +29,8 @@
     "react-tilt": "^1.0.2",
     "react-vertical-timeline-component": "^3.5.3",
     "three": "^0.177.0",
-    "yet-another-react-lightbox": "^3.23.4",
-    "homepage" : "https://VrajGami.github.io/my-portfolio"
+    "yet-another-react-lightbox": "^3.23.4"
+   
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
