@@ -54,9 +54,9 @@ const TechCell = ({ name, icon }) => {
         </div>
       </div>
 
-      {/* The name appears on hover, positioned relative to the main container */}
+      {/* The name appears below the icon, always visible */}
       <div className="absolute inset-0 flex items-center justify-center">
-         <p className="absolute bottom-3 md:bottom-5 text-white text-sm font-bold opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+         <p className="absolute bottom-3 md:bottom-5 text-white text-sm font-bold opacity-100">
            {name}
          </p>
       </div>

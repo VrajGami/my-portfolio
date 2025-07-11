@@ -113,19 +113,6 @@ const experiences = [
       "Contributed to increased store sales through strategic and intelligent product management."
     ],
   },
-  {
-    title: "Awareness Campaign Volunteer & Blood Donation Camp Coordinator",
-    company_name: "Lions Club",
-    icon: tjx, // You can replace this with a Lions Club logo if available in assets
-    iconBg: "#FFD700",
-    date: "May 2021 – Sept. 2022 (COVID-19)",
-    points: [
-      "Volunteered with Lions Club to organize and manage a successful blood donation camp, ensuring smooth operations and high donor turnout.",
-      "Coordinated and participated in multiple COVID-19 awareness campaigns, educating the community on safety protocols and preventive measures.",
-      "Led and contributed to tree planting drives and other community service initiatives, promoting environmental sustainability and public health.",
-      "Collaborated with team members to plan, execute, and report on various volunteering activities, strengthening community engagement during the pandemic."
-    ],
-  },
 ];
 
 

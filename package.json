@@ -2,7 +2,7 @@
   "name": "my-portfolio",
   "private": true,
   "version": "1.0.0",
-  "homepage" : "https://vrajgami.github.io/my-portfolio",
+  "homepage": "https://vrajgami.github.io/my-portfolio",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -21,6 +21,7 @@
     "cannon-es": "^0.20.0",
     "framer-motion": "^12.17.3",
     "lucide-react": "^0.523.0",
+    "ogl": "^1.0.11",
     "react": "18.3.1",
     "react-countup": "^6.5.3",
     "react-dom": "18.3.1",
@@ -30,7 +31,6 @@
     "react-vertical-timeline-component": "^3.5.3",
     "three": "^0.177.0",
     "yet-another-react-lightbox": "^3.23.4"
-   
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

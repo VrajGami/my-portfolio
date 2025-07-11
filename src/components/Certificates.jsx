@@ -10,11 +10,12 @@ import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 
+const BASE = "/my-portfolio";
 const certificates = [
-  { file: "/certificates/certificate1.pdf", preview: "/certificate_previews/certificate1.png", name: "Configuration Management and the Cloud" },
-  { file: "/certificates/certificate2.pdf", preview: "/certificate_previews/certificate2.png", name: "Introduction to Git and Github" },
-  { file: "/certificates/certificate3.pdf", preview: "/certificate_previews/certificate3.png", name: "Using Python to interact with Operating System" },
-  { file: "/certificates/certificate4.pdf", preview: "/certificate_previews/certificate4.png", name: "Crash Course on Python" },
+  { file: `${BASE}/certificates/certificate1.pdf`, preview: `${BASE}/certificate_previews/certificate1.png`, name: "Configuration Management and the Cloud" },
+  { file: `${BASE}/certificates/certificate2.pdf`, preview: `${BASE}/certificate_previews/certificate2.png`, name: "Introduction to Git and Github" },
+  { file: `${BASE}/certificates/certificate3.pdf`, preview: `${BASE}/certificate_previews/certificate3.png`, name: "Using Python to interact with Operating System" },
+  { file: `${BASE}/certificates/certificate4.pdf`, preview: `${BASE}/certificate_previews/certificate4.png`, name: "Crash Course on Python" },
 ];
 
 const CertificateCard = ({ preview, name, index, onCardClick }) => (

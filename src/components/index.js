@@ -11,6 +11,7 @@ import CanvasLoader from "./Loader";
 import ProjectCard from './ProjectCard';
 import MyLife from './Mylife';
 import Certificate from './Certificates';
+import Volunteering from './Volunteering';
 
 export {
   Hero,
@@ -27,6 +28,7 @@ export {
   ComputersCanvas, 
   StarsCanvas,
   ProjectCard,
-ProjectDetailsPage,
-MyLife,
+  ProjectDetailsPage,
+  MyLife,
+  Volunteering,
 };

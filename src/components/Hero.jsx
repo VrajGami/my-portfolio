@@ -1,8 +1,22 @@
-import {motion}  from 'framer-motion';
+import { motion } from 'framer-motion';
 import {styles} from '../styles';
 import {ComputersCanvas} from './canvas'
 
 
+
+const textVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      type: 'spring',
+      stiffness: 120,
+      damping: 14,
+    },
+  }),
+};
 
 const Hero = () => {
   return (
@@ -15,10 +29,24 @@ const Hero = () => {
         
       </div>
       <div>
-          <h1 className={`${styles.heroHeadText}  text-white`}>Hi, I'm <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500  '> Vraj </span></h1>
-          <p className={`${styles.heroSubText}  text-white-100 mt-2`}>
-          Dedicated to the craft of turning complex challenges into clean, simple solutions.
-          </p>
+          <motion.h1
+            className={`${styles.heroHeadText} text-white`}
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+            custom={1}
+          >
+            Hi, I'm <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500'> Vraj </span>
+          </motion.h1>
+          <motion.p
+            className={`${styles.heroSubText} text-white-100 mt-2`}
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+            custom={2}
+          >
+            Dedicated to the craft of turning complex challenges into clean, simple solutions.
+          </motion.p>
       </div>
  
     </div>  
