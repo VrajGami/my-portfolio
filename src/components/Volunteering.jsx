@@ -3,6 +3,9 @@ import { SectionWrapper } from "../hoc";
 import { styles } from "../styles";
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from '../utils/useInView';
+import { textVariant } from '../utils/motion';
 
 const volunteering = [
   {
@@ -77,20 +80,38 @@ const VolunteeringCard = ({ experience }) => (
   </VerticalTimelineElement>
 );
 
-const Volunteering = () => (
-  <div className="mt-20 flex flex-col relative z-10 w-full items-center">
-    <div className="w-full flex flex-col items-center mb-8">
-      <p className={`${styles.sectionSubText} text-center mb-2`}>Community & Service</p>
-      <h2 className={`${styles.sectionHeadText} text-center bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent drop-shadow-lg`}>Volunteering</h2>
+const Volunteering = () => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.25 });
+
+  React.useEffect(() => {
+    if (inView) {
+      controls.start('show');
+    } else {
+      controls.start('hidden');
+    }
+  }, [inView, controls]);
+
+  return (
+    <div ref={ref} className="mt-20 flex flex-col relative z-10 w-full items-center">
+      <motion.div
+        variants={textVariant()}
+        initial="hidden"
+        animate={controls}
+        className={`w-full flex flex-col items-center mb-8`}
+      >
+        <p className={`${styles.sectionSubText} text-center mb-2`}>Community & Service</p>
+        <h2 className={`${styles.sectionHeadText} text-center bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent drop-shadow-lg`}>Volunteering</h2>
+      </motion.div>
+      <div className="mt-20 flex flex-col relative z-10 w-full">
+        <VerticalTimeline lineColor="rgba(167, 139, 250, 0.3)">
+          {volunteering.map((exp, idx) => (
+            <VolunteeringCard key={`volunteering-${idx}`} experience={exp} />
+          ))}
+        </VerticalTimeline>
+      </div>
     </div>
-    <div className="mt-20 flex flex-col relative z-10 w-full">
-      <VerticalTimeline lineColor="rgba(167, 139, 250, 0.3)">
-        {volunteering.map((exp, idx) => (
-          <VolunteeringCard key={`volunteering-${idx}`} experience={exp} />
-        ))}
-      </VerticalTimeline>
-    </div>
-  </div>
-);
+  );
+};
 
 export default SectionWrapper(Volunteering, "volunteering");

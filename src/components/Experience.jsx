@@ -1,11 +1,12 @@
 import React from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import 'react-vertical-timeline-component/style.min.css';
 import { styles } from '../styles';
 import { experiences } from '../constants';
 import { SectionWrapper } from '../hoc';
 import { textVariant } from '../utils/motion';
+import { useInView } from '../utils/useInView';
 
 const ExperienceCard = ({ experience }) => (
   <VerticalTimelineElement
@@ -62,17 +63,27 @@ const ExperienceCard = ({ experience }) => (
 );
 
 const Experience = () => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.25 });
+
+  React.useEffect(() => {
+    if (inView) {
+      controls.start('show');
+    } else {
+      controls.start('hidden');
+    }
+  }, [inView, controls]);
+
   return (
-    <div>
+    <div ref={ref}>
       <div id="stars" className="absolute inset-0"></div>
 
       <motion.div
         variants={textVariant()}
         initial="hidden"
-        animate="show"
+        animate={controls}
         className="text-center mb-12 px-4 relative z-10"
       >
-
         <h2 className={styles.sectionHeadText}>Work Experience.</h2>
       </motion.div>
 
@@ -83,7 +94,6 @@ const Experience = () => {
           ))}
         </VerticalTimeline>
       </div>
-     
     </div>
   );
 };

@@ -82,7 +82,7 @@ const Tech = () => {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: false, amount: 0.1 }}
       >
         {technologies.map((technology) => (
           <TechCell key={technology.name} name={technology.name} icon={technology.icon} />

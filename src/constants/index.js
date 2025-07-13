@@ -91,13 +91,12 @@ const experiences = [
     iconBg: "#383E56",
     date: "Jul. 2024 - Present",
     points: [
-            "Developed and maintained cross-platform mobile applications using Flutter (for both Android and iOS), responsive web applications using Angular, and scalable backend services with .NET Core and SQL Server.",
-      "Deployed production-ready applications to AWS using various PaaS services, ensuring secure, maintainable, and high-performance cloud architecture.",
-      "Worked across multiple domains including healthcare, campus accessibility, and academic operations such as faculty scheduling and reporting.",
-      "In the healthcare domain, contributed to building an intelligent application that assists caregivers and physicians with patient assessments and generates personalized care plans using integrated machine learning capabilities.",
-      "In the accessibility domain, developed web components and interfaces aimed at improving the inclusiveness and usability of university campus for all users.",
-      "In academic operations, engineered a tool to streamline the management of faculty workloads, supporting efficient allocation and reporting of teaching assignments.",
-    ],
+            "Actively building sophisticated Angular front-ends with advanced features like interactive map integration, and creating robust .NETCore APIs and deploying scalable full-stack applications on AWS using various PaaS services",
+      "Building and publishing Flutter mobile apps for both iOS and Android, implementing complex functionalities such as dynamic multi-language support and offline data capabilities..",
+      "Involvd in creating high-performance Microsoft SQL Server (MSSQL) databases, utilizing Internet Information Services (IIS) for local server hosting and testing.",
+      "Managing the development and deployment pipeline to ensure application stability and performance.",
+      "Applying full-stack skills to create solutions for the domains like healthcare, accessibility, and education.",
+      ],
   },
 
 
