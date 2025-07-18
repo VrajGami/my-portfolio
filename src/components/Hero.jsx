@@ -1,8 +1,5 @@
 import { motion } from 'framer-motion';
-import {styles} from '../styles';
-import {ComputersCanvas} from './canvas'
-
-
+import { styles } from '../styles';
 
 const textVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -18,17 +15,65 @@ const textVariants = {
   }),
 };
 
+// Updated shooting star: curved path + visible size + high z-index
+const shootingStarVariants = {
+  initial: {
+    x: '-10%',
+    y: '-10%',
+    opacity: 0,
+  },
+  animate: {
+    x: ['-10%', '50%', '110%'],
+    y: ['-10%', '30%', '110%'],
+    opacity: [0, 1, 0],
+    transition: {
+      duration: 2,         // speed of the star
+      ease: 'easeInOut',
+      repeat: Infinity,
+      repeatDelay: 3,      // pause between shooting stars
+    },
+  },
+};
+
 const Hero = () => {
   return (
-  <section className='relative w-full h-screen mx-auto'> 
-  
-    <div className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}>
-      <div className='flex flex-col justify-center items-center mt-5'>
-          <div className='w-5 h-5 rounded-full bg-gradient-to-r from-purple-400 to-pink-500' />
-          <div className='w-1 sm:h-80 h-40 violet-gradient bg-gradient-to-r from-purple-400 to-pink-500'/>
-        
+    <section className="relative w-full h-screen mx-auto">
+      {/* Background video */}
+      <div className="absolute inset-0 z-[-100000] overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+        className="w-full h-full object-cover rotate-180 absolute  left-0 top-[-35vh]"
+        >
+          <source src="./blackhole.webm" type="video/webm" />
+        </video>
+        <div
+          className="absolute bottom-0 left-0 w-full h-1/2"
+          style={{
+            background:
+              'linear-gradient(to top, rgba(10, 5, 20, 1) 60%, rgba(10, 5, 20, 0) 100%)',
+          }}
+        />
       </div>
-      <div>
+
+      {/* Shooting star */}
+      <motion.div
+        className="absolute top-0 left-0 w-48 h-1 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 z-10000 opacity-90"
+        variants={shootingStarVariants}
+        initial="initial"
+        animate="animate"
+      />
+
+      {/* Main content */}
+      <div
+        className={`${styles.paddingX} absolute inset-0 top-[320px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
+      >
+        <div className="flex flex-col justify-center items-center mt-5">
+          <div className="w-5 h-5 rounded-full bg-gradient-to-r from-pink-500 to-purple-400" />
+          <div className="w-1 sm:h-80 h-40 violet-gradient bg-gradient-to-r from-purple-400 to-pink-500" />
+        </div>
+        <div>
           <motion.h1
             className={`${styles.heroHeadText} text-white`}
             variants={textVariants}
@@ -36,7 +81,10 @@ const Hero = () => {
             animate="visible"
             custom={1}
           >
-            Hi, I'm <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500'> Vraj </span>
+            Hi, I'm{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
+              Vraj
+            </span>
           </motion.h1>
           <motion.p
             className={`${styles.heroSubText} text-white-100 mt-2`}
@@ -45,31 +93,12 @@ const Hero = () => {
             animate="visible"
             custom={2}
           >
-            Dedicated to the craft of turning complex challenges into clean, simple solutions.
+            Dedicated to the craft of turning complex challenges into clean,
+            simple solutions.
           </motion.p>
+        </div>
       </div>
- 
-    </div>  
-       <ComputersCanvas/>
-       <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center '>
-          <a href='#about'>
-              <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center item-start p-2'>
-<motion.div
-          animate={{
-            y:[0,24,0]
-          }}
-          transition={{
-            duration : 1.5,
-            repeat : Infinity,
-            repeatType : 'loop'
-          }}
-          className="w-3 h-3 rounded-full bg-secondary mb-1"
-          />
-              </div>
-          </a>
-
-       </div>
-  </section>
+    </section>
   );
 };
 

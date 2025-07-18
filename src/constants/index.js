@@ -19,7 +19,7 @@ unbc,
 tjx,
 } from "../assets";
 
-export const aboutContent = "I'm a curious soul who thrives at the crossroads of code and adventure. By day, I'm a computer scientist and software developer, crafting digital solutions with logic and creativity. Beyond the screen, you'll find me exploring nature's trails, chasing sunsets, or diving into a new sport with a grin. I'm a passionate traveler, always chasing the next story from a far-off corner of the world. And when I'm not building or wandering, I'm giving back through volunteering, connecting with communities, and making a difference one step at a time. I'm here to create, explore, and inspire join me on the journey!";
+export const aboutContent = "I'm a curious individual who thrives at the intersection of technology, creativity, and exploration. As a computer scientist and software developer, I enjoy crafting thoughtful, impactful digital solutions that blend logic with innovation. Outside of work, I find inspiration in nature, whether it’s hiking scenic trails, catching sunsets, or staying active through sports. Traveling fuels my perspective, as I seek out new cultures and stories from around the world. I’m also deeply committed to giving back through volunteering, building meaningful connections, and making a positive difference wherever I can. My journey is about creating, exploring, and inspiring and I'm always excited to see where it leads next.";
 
 export const navLinks = [
   {
@@ -131,6 +131,16 @@ const projects = [
     source_code_link: "https://github.com/VrajGami/gdsapplication.git",
   },
   {
+  name: "Healthcare BI Dashboard",
+  description:
+    "Created a dynamic business intelligence dashboard to visualize and analyze healthcare datasets, enabling data-driven decision-making through interactive Power BI visualizations and metrics.",
+  tags: [
+    { name: "Power BI", color: "blue-text-gradient" },
+  ],
+  image: powerbiproject,
+  source_code_link: "https://github.com/VrajGami/Healthcare-Dashboard.git",
+},
+  {
   name: "Pathfinding Algorithm with Q-Learning",
   description:
     "Implemented a reinforcement learning solution for path optimization using Q-Learning. The project focuses on concurrent algorithm design, efficient exploration, and convergence strategies for dynamic environments.",
@@ -142,38 +152,16 @@ const projects = [
   source_code_link: "https://github.com/VrajGami/Machine-Learning-QLearning.git",
 },
 {
-  name: "Cribbage Game (Java GUI)",
-  description:
-    "Developed a complete Cribbage card game with a user-friendly graphical interface using Java Swing. Demonstrates strong object-oriented programming principles and user interaction handling in desktop applications.",
-  tags: [
-    { name: "Java", color: "blue-text-gradient" },
-    { name: "Java GUI", color: "green-text-gradient" },
-    { name: "GIT", color: "pink-text-gradient" },
-  ],
-  image: cribbage,
-  source_code_link: "https://github.com/Skyring100/Need-More-Caffeine-Cribbage.git",
-},
-{
   name: "AI vs. Human Text Classification Model",
   description:
     "Built a machine learning classifier to distinguish between human-written and AI-generated text using advanced NLP and deep learning techniques, including LSTM and CNN models developed in PyTorch.",
   tags: [
     { name: "Python", color: "blue-text-gradient" },
-    { name: "PyTorch", color: "green-text-gradient" },
-    { name: "TensorFlow", color: "pink-text-gradient" },
+    { name: "Google Colab", color: "green-text-gradient" },
+    { name: "Kaggle", color: "pink-text-gradient" },
   ],
   image: aivshuman,
   source_code_link: "https://github.com/VrajGami/Ai-vs-Human-Text-classification.git",
-},
-{
-  name: "Healthcare BI Dashboard",
-  description:
-    "Created a dynamic business intelligence dashboard to visualize and analyze healthcare datasets, enabling data-driven decision-making through interactive Power BI visualizations and metrics.",
-  tags: [
-    { name: "Power BI", color: "blue-text-gradient" },
-  ],
-  image: powerbiproject,
-  source_code_link: "https://github.com/VrajGami/Healthcare-Dashboard.git",
 },
 {
   name: "Bad USB with Raspberry Pi Pico",
@@ -186,6 +174,18 @@ const projects = [
   ],
   image: rasbarrypi,
   source_code_link: "https://github.com/VrajGami/Bad-USB",
+},
+{
+  name: "Cribbage Game (Java GUI)",
+  description:
+    "Developed a complete Cribbage card game with a user-friendly graphical interface using Java Swing. Demonstrates strong object-oriented programming principles and user interaction handling in desktop applications.",
+  tags: [
+    { name: "Java", color: "blue-text-gradient" },
+    { name: "Java GUI", color: "green-text-gradient" },
+    { name: "GIT", color: "pink-text-gradient" },
+  ],
+  image: cribbage,
+  source_code_link: "https://github.com/Skyring100/Need-More-Caffeine-Cribbage.git",
 },
 
 ];

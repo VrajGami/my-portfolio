@@ -4,6 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { github } from '../assets'; 
 import { fadeIn } from '../utils/motion'; 
 
+const tagColorMap = {
+  "blue-text-gradient": "bg-gradient-to-r from-blue-500 to-cyan-500 text-white",
+  "green-text-gradient": "bg-gradient-to-r from-green-500 to-emerald-400 text-white",
+  "pink-text-gradient": "bg-gradient-to-r from-pink-500 to-rose-400 text-white",
+};
+
+
 const overlayVariants = {
   hidden: { opacity: 0, y: 30, pointerEvents: 'none' },
   visible: { opacity: 1, y: 0, pointerEvents: 'auto', transition: { type: 'spring', stiffness: 300, damping: 25 } },
@@ -56,9 +63,12 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
 
             <div className='mt-2 flex flex-wrap gap-1'>
               {tags.map((tag) => (
-                <p key={tag.name} className={`text-[12px] px-2 py-0.5 bg-black/20 rounded-full ${tag.color}`}>
-                  #{tag.name}
-                </p>
+               <p
+      key={tag.name}
+      className={`text-[12px] px-2 py-0.5 rounded-full ${tagColorMap[tag.color] || 'bg-gray-500 text-white'}`}
+    >
+      #{tag.name}
+    </p>
               ))}
             </div>
 

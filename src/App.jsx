@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Certificate, About, Contact, Experience, Hero, Navbar, Tech, Works, StarsCanvas, MyLife, ProjectDetailsPage, Volunteering } from './components';
+import { Certificate, About, Contact, Experience, Hero, Navbar, Tech, Works, StarsCanvas, Volunteering } from './components';
 
 function App() {
   return (
@@ -12,10 +12,10 @@ function App() {
             path="/"
             element={
               <>
-                <div className=" bg-cover bg-no-repeat bg-center">
+              
                    <Navbar />
                   <Hero />
-                </div>
+
                 <About />
                 <Experience />
                 <Volunteering />
@@ -30,9 +30,6 @@ function App() {
               </>
             }
           />
-
-          <Route path="/project-details" element={<ProjectDetailsPage />} />
-            <Route path="/myLife" element={<MyLife />} />
         </Routes>
       </div>
     </BrowserRouter>
