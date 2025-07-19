@@ -1,32 +1,39 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Certificate, About, Contact, Experience, Hero, Navbar, Tech, Works, StarsCanvas, Volunteering } from './components';
+import {
+  Certificate,
+  About,
+  Contact,
+  Experience,
+  Hero,
+  Navbar,
+  Tech,
+  Works,
+  Volunteering,
+  Background
+} from "./components";
+
 
 function App() {
   return (
     <BrowserRouter basename="/my-portfolio">
       <div className="relative z-0 bg-primary">
-       
-
+        <Background />
         <Routes>
           <Route
             path="/"
             element={
               <>
-              
-                   <Navbar />
-                  <Hero />
-
+                <Navbar />
+                <Hero />
                 <About />
                 <Experience />
                 <Volunteering />
                 <Tech />
                 <Works />
-                <Certificate/>
+                <Certificate />
                 <div className="relative z-0">
                   <Contact />
                 </div>
-                <StarsCanvas />
-
               </>
             }
           />

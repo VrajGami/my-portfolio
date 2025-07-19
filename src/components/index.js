@@ -1,4 +1,4 @@
-import { EarthCanvas, ComputersCanvas, StarsCanvas } from './canvas';
+import { EarthCanvas, ComputersCanvas } from './canvas';
 import Hero from "./Hero";
 import Navbar from "./Navbar";
 import About from "./About";
@@ -12,7 +12,7 @@ import ProjectCard from './ProjectCard';
 
 import Certificate from './Certificates';
 import Volunteering from './Volunteering';
-
+import Background from './background';
 export {
   Hero,
   Navbar,
@@ -24,9 +24,9 @@ export {
   Certificate,
   CanvasLoader,
   EarthCanvas, 
-
+Background,
   ComputersCanvas, 
-  StarsCanvas,
+
   ProjectCard,
   Volunteering,
 };

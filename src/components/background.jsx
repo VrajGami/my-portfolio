@@ -1,9 +1,8 @@
-import React, { useRef, useState, useEffect, Suspense, useCallback } from "react";
+import React, { Suspense, useRef, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { PointMaterial, Preload } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
 import * as THREE from "three";
-
 
 const Stars = ({ mouse, lastMoveTime }) => {
   const ref = useRef();
@@ -56,41 +55,59 @@ const Stars = ({ mouse, lastMoveTime }) => {
   );
 };
 
-// Main Canvas Component
 const StarsCanvas = () => {
-    const mouse = useRef({ x: 0, y: 0 });
+  const mouse = useRef({ x: 0, y: 0 });
   const lastMoveTime = useRef(Date.now());
-      useEffect(()=> {
-        const handleMouseMove = (event) => {
-              mouse.current = { x: event.clientX, y: event.clientY };
-              lastMoveTime.current = Date.now(); 
-        }
 
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
-      }, [])
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      mouse.current = { x: e.clientX, y: e.clientY };
+      lastMoveTime.current = Date.now();
+    };
 
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   return (
-    
     <Canvas
       style={{
-        position: 'fixed',
+        position: "fixed",
         top: 0,
         left: 0,
-        width: '100vw',
-        height: '100vh',
-                zIndex: -9999,
-        pointerEvents: 'none',
+        width: "100vw",
+        height: "100vh",
+        zIndex: -9999,
+        pointerEvents: "none",
       }}
       camera={{ position: [0, 0, 1] }}
     >
       <Suspense fallback={null}>
-        <Stars mouse={mouse} lastMoveTime={lastMoveTime}/>
+        <Stars mouse={mouse} lastMoveTime={lastMoveTime} />
       </Suspense>
       <Preload all />
     </Canvas>
   );
 };
 
-export default StarsCanvas;
+export default function Background() {
+  return (
+    <>
+      <div
+        className="fixed inset-0 z-[-100000] overflow-hidden"
+      >
+      
+        <div
+          className="absolute bottom-0 left-0 w-full h-1/2"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(10, 5, 20, 1) 60%, rgba(10, 5, 20, 0) 100%)",
+          }}
+        />
+      </div>
+
+      {/* Stars */}
+      <StarsCanvas />
+    </>
+  );
+}
