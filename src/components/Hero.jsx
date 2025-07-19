@@ -47,7 +47,7 @@ const Hero = () => {
       className="relative w-full h-screen mx-auto"
     >
       {/* Show Background only if Hero is visible */}
-      {isInView && (
+      {/* {isInView && ( */}
         <>
           <div className="absolute inset-0 z-[-100000] overflow-hidden">
             <video
@@ -76,7 +76,7 @@ const Hero = () => {
             animate="animate"
           />
         </>
-      )}
+
 
       {/* Main content */}
       <div
