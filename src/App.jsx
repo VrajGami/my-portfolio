@@ -26,9 +26,9 @@ function App() {
                 <Navbar />
                 <Hero />
                 <About />
+                 <Tech />
                 <Experience />
                 <Volunteering />
-                <Tech />
                 <Works />
                 <Certificate />
                 <div className="relative z-0">

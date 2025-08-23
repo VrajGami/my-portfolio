@@ -19,8 +19,8 @@ unbc,
 tjx,
 } from "../assets";
 
-export const aboutContent = "I'm a curious individual who thrives at the intersection of technology, creativity, and exploration. As a computer scientist and software developer, I enjoy crafting thoughtful, impactful digital solutions that blend logic with innovation. Outside of work, I find inspiration in nature, whether it’s hiking scenic trails, catching sunsets, or staying active through sports. Traveling fuels my perspective, as I seek out new cultures and stories from around the world. I’m also deeply committed to giving back through volunteering, building meaningful connections, and making a positive difference wherever I can. My journey is about creating, exploring, and inspiring and I'm always excited to see where it leads next.";
-
+export const aboutContent = 
+  "Hi, I’m a Computer Science student at UNBC who loves turning complex problems into simple, impactful solutions. I approach technology like a puzzle: breaking it apart, finding patterns, and building systems that are not just efficient but meaningful. My mindset comes from years of competitive chess, where every move requires strategy, and from sports, where discipline and resilience matter most. Whether I’m developing scalable cloud apps, designing intuitive UIs, or experimenting with AI, my focus is always on creating tech that makes a difference practical, purposeful, and a little bit bold.";
 export const navLinks = [
   {
     id: "about",
@@ -102,35 +102,44 @@ const technologies = [
 
 const experiences = [
   {
-    title: "Full Stack Developer",
-    company_name: "Business Intelligence Research Group",
+    title: "Research Assistant",
+    company_name: "Business Intelligence Research Group (BIRG) Lab, UNBC",
     icon: unbc,
-    iconBg: "#383E56",
+    iconBg: "#a2d2ff",
     date: "Jul. 2024 - Present",
     points: [
-            "Actively building sophisticated Angular front-ends with advanced features like interactive map integration, and creating robust .NETCore APIs and deploying scalable full-stack applications on AWS using various PaaS services",
-      "Building and publishing Flutter mobile apps for both iOS and Android, implementing complex functionalities such as dynamic multi-language support and offline data capabilities..",
-      "Involvd in creating high-performance Microsoft SQL Server (MSSQL) databases, utilizing Internet Information Services (IIS) for local server hosting and testing.",
-      "Managing the development and deployment pipeline to ensure application stability and performance.",
-      "Applying full-stack skills to create solutions for the domains like healthcare, accessibility, and education.",
-      ],
+      "Researching and evaluating AWS for deploying scalable, cost-optimized cloud architectures for full-stack research applications.",
+      "Developing advanced Angular front-ends with .NET Core APIs, featuring map integration, geospatial visualizations, and data dashboards.",
+      "Building and publishing cross-platform Flutter apps (iOS/Android) with multilingual, offline, and cloud-sync capabilities.",
+      "Designing and maintaining MSSQL databases while performing system administration, documentation, and stakeholder coordination.",
+      "Delivering domain-specific solutions in healthcare (Geriatric Assessment tool), campus accessibility, and education (faculty assignment system).",
+    ],
   },
-
-
   {
-     title: "Part-Time Associate",
-    company_name: "TJX Canada",
-    icon: tjx, 
-    iconBg: "#E6DEDD",
-    date: "Oct. 2022 - Mar. 2025", 
+    title: "Research Assistant",
+    company_name: "Department of Computer Science, UNBC",
+    icon: unbc,
+    iconBg: "#fbc3bc",
+    date: "Jul. 2025 - Oct. 2025",
     points: [
-      "Awarded Employee of the Month for exceptional customer service. ",
-      "Managed product placements and efficiently handled cashier operations at Winners, Marshalls, and HomeSense. ",
-      "Contributed to increased store sales through strategic and intelligent product management."
+      "Engineered a sophisticated ETL pipeline to process province-scale hierarchical XML, transforming it into normalized CSVs and a consolidated SQLite database.",
+      "Developed a critical auditing and validation module that generates detailed reports to verify data integrity and ensure a fully traceable, reproducible workflow.",
+      "Implemented metadata reporting to provide users with clear summaries of source file contents, significantly improving the system's transparency and usability.",
+    ],
+  },
+  {
+    title: "Part-Time Associate",
+    company_name: "TJX Canada",
+    icon: tjx,
+    iconBg: "#E6DEDD",
+    date: "Oct. 2022 - Mar. 2025",
+    points: [
+      "Awarded 'Employee of the Month' for consistently delivering high-quality customer service and improving customer satisfaction.",
+      "Managed product merchandising and inventory across multiple departments to ensure planogram compliance and optimal stock availability.",
+      "Trained and mentored new staff on company procedures and job responsibilities.",
     ],
   },
 ];
-
 
 export const projectDiscription = "A curated collection of projects demonstrating a strong foundation in software engineering, machine learning, and data analytics. These projects highlight my ability to bridge theoretical concepts and practical application across diverse technology stacks.";
 
