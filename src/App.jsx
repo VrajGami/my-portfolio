@@ -15,7 +15,7 @@ import {
 
 function App() {
   return (
-    <BrowserRouter basename="/my-portfolio">
+    <BrowserRouter >
       <div className="relative z-0 bg-primary">
         <Background />
         <Routes>

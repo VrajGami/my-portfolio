@@ -2,7 +2,7 @@
   "name": "my-portfolio",
   "private": true,
   "version": "1.0.0",
-  "homepage": "https://vrajgami.github.io/my-portfolio",
+ "homepage": "https://gamivraj.com",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -10,7 +10,7 @@ import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 
-const BASE = "/my-portfolio";
+const BASE = "";
 const certificates = [
   { file: `${BASE}/certificates/certificate1.pdf`, preview: `${BASE}/certificate_previews/certificate1.png`, name: "Configuration Management and the Cloud" },
   { file: `${BASE}/certificates/certificate2.pdf`, preview: `${BASE}/certificate_previews/certificate2.png`, name: "Introduction to Git and Github" },

@@ -20,14 +20,17 @@ tjx,
 } from "../assets";
 
 export const aboutContent = 
-  "Hi, I’m a Computer Science student at UNBC who loves turning complex problems into simple, impactful solutions. I approach technology like a puzzle: breaking it apart, finding patterns, and building systems that are not just efficient but meaningful. My mindset comes from years of competitive chess, where every move requires strategy, and from sports, where discipline and resilience matter most. Whether I’m developing scalable cloud apps, designing intuitive UIs, or experimenting with AI, my focus is always on creating tech that makes a difference practical, purposeful, and a little bit bold.";
+  "Hi, I’m a Computer Science student at UNBC who loves turning complex problems into simple, impactful solutions. I approach technology like a puzzle: breaking it apart, finding patterns, and building systems that are not just efficient but meaningful. Whether I’m developing scalable cloud apps, designing intuitive UIs, or experimenting with AI, my focus is always on creating tech that makes a difference practical, purposeful, and a little bit bold.";
 export const navLinks = [
   {
     id: "about",
     title: "About",
   },
 
-
+{
+    id: "tech",
+    title: "Tech",
+  },
   {
     id: "work",
     title: "Experience",
@@ -37,9 +40,6 @@ export const navLinks = [
     title: "Volunteering",
   },
   {
-    id: "tech",
-    title: "Tech",
-  },{
     id: "projects",
     title: "Projects",
   },
