@@ -99,7 +99,7 @@ const experiences = [
   },
   {
     title: "Research Assistant",
-    company_name: "Department of Computer Science, UNBC",
+    company_name: "School of Planning and Sustainability, UNBC",
     icon: unbc,
     iconBg: "#fbc3bc",
     date: "2025– Present",
