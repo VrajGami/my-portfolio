@@ -7,12 +7,16 @@ import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
+
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
 import figma from "./tech/figma.png";
 import git from "./tech/git.png";
 import html from "./tech/html.png";
 import javascript from "./tech/javascript.png";
+import python from "./tech/python.png";
+import dart from "./tech/dart.jpg";
+import java from "./tech/java.png";
 
 import aivshuman from "./projects/aivshuman.png";
 import cribbage from "./projects/cribbage.png";
@@ -38,15 +42,15 @@ import tjx from "./company/tjx.jpg";
 
 
 export {
-aivshuman,
-cribbage,
-powerbiproject,
-rasbarrypi,
-Qlearning,
-Colab,
-gds,
+  aivshuman,
+  cribbage,
+  powerbiproject,
+  rasbarrypi,
+  Qlearning,
+  Colab,
+  gds,
   logo,
-ssms,
+  ssms,
   creator,
   mobile,
   web,
@@ -61,8 +65,9 @@ ssms,
   git,
   html,
   javascript,
-  
-
+  python,
+  dart,
+  java,
   reactjs,
   redux,
   tailwind,
@@ -71,7 +76,6 @@ ssms,
   flutter,
   angular,
   aws,
-unbc,
-tjx,
-
+  unbc,
+  tjx,
 };

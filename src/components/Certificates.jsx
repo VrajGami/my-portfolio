@@ -12,10 +12,11 @@ import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 const BASE = "";
 const certificates = [
-  { file: `${BASE}/certificates/certificate1.pdf`, preview: `${BASE}/certificate_previews/certificate1.png`, name: "Configuration Management and the Cloud" },
-  { file: `${BASE}/certificates/certificate2.pdf`, preview: `${BASE}/certificate_previews/certificate2.png`, name: "Introduction to Git and Github" },
-  { file: `${BASE}/certificates/certificate3.pdf`, preview: `${BASE}/certificate_previews/certificate3.png`, name: "Using Python to interact with Operating System" },
-  { file: `${BASE}/certificates/certificate4.pdf`, preview: `${BASE}/certificate_previews/certificate4.png`, name: "Crash Course on Python" },
+  { file: `${BASE}/certificates/certificate1.pdf`, preview: `${BASE}/certificate_previews/certificate1.png`, name: "Configuration Management and the Cloud (Coursera)" },
+  { file: `${BASE}/certificates/certificate2.pdf`, preview: `${BASE}/certificate_previews/certificate2.png`, name: "Introduction to Git and GitHub (Coursera)" },
+  { file: `${BASE}/certificates/certificate3.pdf`, preview: `${BASE}/certificate_previews/certificate3.png`, name: "Using Python to Interact with the Operating System (Coursera)" },
+  { file: `${BASE}/certificates/certificate4.pdf`, preview: `${BASE}/certificate_previews/certificate4.png`, name: "Crash Course on Python (Coursera)" },
+  // Add or remove certificates here to match the latest CV
 ];
 
 const CertificateCard = ({ preview, name, index, onCardClick }) => (

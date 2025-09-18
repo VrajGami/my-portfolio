@@ -9,37 +9,17 @@ import { textVariant } from '../utils/motion';
 
 const volunteering = [
   {
-    title: "Volunteer",
-    organization: "UNBC Food Donation Initiative",
-    date: "2023",
-    address: "Prince George, BC, Canada",
-    iconBg: "#a78bfa",
-    points: [
-      "Participated in a food donation drive at the Salvation Army Camp in Prince George, helping collect, organize, and distribute food to those in need."
-    ]
-  },
-  {
-    title: "Hike Guide",
-    organization: "UNBC Housing",
-    date: "2022",
-    address: "Prince George, BC, Canada",
-    iconBg: "#f472b6",
-    points: [
-      "Guided and supported students on the Shane Lake hiking trip, ensuring safety and fostering community among participants in Prince George."
-    ]
-  },
-  {
     title: "Awareness Campaign Volunteer & Blood Donation Camp Coordinator",
     organization: "Lions Club",
     date: "May 2021 – Sept. 2022 (COVID-19)",
     address: "Madhapar-Bhuj, Gujarat, India",
     iconBg: "#FFD700",
     points: [
-      "Volunteered with Lions Club to organize and manage a successful blood donation camp, ensuring smooth operations and high donor turnout.",
-      "Coordinated and participated in multiple COVID-19 awareness campaigns, educating the community on safety protocols and preventive measures.",
-      "Led and contributed to tree planting drives and other community service initiatives, promoting environmental sustainability and public health.",
-      "Collaborated with team members to plan, execute, and report on various volunteering activities, strengthening community engagement during the pandemic."
-    ]
+      "Organized and managed a successful blood donation camp, ensuring smooth operations and high donor turnout.",
+      "Coordinated and participated in COVID-19 awareness campaigns, educating the community on safety protocols and preventive measures.",
+      "Led and contributed to tree planting drives and other community service initiatives, promoting environmental sustainability and public health."
+    ],
+    certificateUrl: "https://vraj-gami-documents.s3.ca-central-1.amazonaws.com/lions+club.pdf"
   }
 ];
 
@@ -77,6 +57,18 @@ const VolunteeringCard = ({ experience }) => (
         <li key={`volunteering-point-${index}`} className="text-white/80 text-[14px] pl-1 tracking-wider">{point}</li>
       ))}
     </ul>
+    {experience.certificateUrl && (
+      <div className="mt-4 ml-5">
+        <a
+          href={experience.certificateUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-400 underline text-[15px]"
+        >
+          Lions Club Certificate (PDF)
+        </a>
+      </div>
+    )}
   </VerticalTimelineElement>
 );
 
