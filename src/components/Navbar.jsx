@@ -16,7 +16,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const containerRef = useRef(null);
 
- 
+
   const blobX = useMotionValue(0);
   const springX = useSpring(blobX, { stiffness: 350, damping: 30 });
 
@@ -35,7 +35,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`${styles.paddingX} fixed top-0 w-full z-50 bg-transparent backdrop-blur-lg`}>  
+    <nav className={`${styles.paddingX} fixed top-0 w-full z-50 glass`}>
       <div className="max-w-7xl mx-auto flex justify-between items-center h-20 relative">
         {/* Logo */}
         <Link to="/" onClick={() => handleLinkClick('Home')} className="flex items-center gap-3 cursor-pointer group">
@@ -52,19 +52,16 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <ul ref={containerRef} className="hidden sm:flex gap-8 relative">
           {/* Neon Blob */}
-          <motion.div
-            className="absolute top-1/2 left-0 w-20 h-2 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full opacity-80 filter blur-xl -translate-y-1/2"
-            style={{ x: springX }}
-          />
+
 
           {navLinks.map(({ id, title }) => (
             <motion.li
               key={id}
-              className="relative z-10 text-white uppercase text-sm tracking-wide cursor-pointer px-2"
+              className="relative z-10 text-white uppercase text-sm tracking-wide cursor-pointer px-2 hover:text-[#915eff]"
               onClick={() => handleLinkClick(title)}
               initial={{ opacity: 0.7 }}
               animate={{ opacity: active === title ? 1 : 0.7 }}
-              whileHover={{ scale: 1.2, opacity: 1 }}
+              whileHover={{ color: '#915eff' }}
               transition={{ type: 'spring', stiffness: 300 }}
             >
               <a href={`#${id}`}>{title}</a>

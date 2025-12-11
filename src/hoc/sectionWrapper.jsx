@@ -19,7 +19,19 @@ const SectionWrapper = (Component, idName) => function HOC() {
     return (
         <motion.section
             ref={ref}
-            variants={staggerContainer()}
+            variants={{
+                hidden: { opacity: 0, y: 50 },
+                show: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                        type: "spring",
+                        duration: 1.25,
+                        delay: 0.2,
+                        staggerChildren: 0.1, // Preserve stagger logic
+                    }
+                }
+            }}
             initial="hidden"
             animate={controls}
             className={`${styles.padding} max-w-7xl mx-auto relative z-0`}

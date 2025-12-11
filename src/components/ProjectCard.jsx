@@ -1,8 +1,8 @@
-import React, { useState } from 'react'; 
+import React, { useState } from 'react';
 import { Tilt } from 'react-tilt';
 import { motion, AnimatePresence } from 'framer-motion';
-import { github } from '../assets'; 
-import { fadeIn } from '../utils/motion'; 
+import { github } from '../assets';
+import { fadeIn } from '../utils/motion';
 
 const tagColorMap = {
   "blue-text-gradient": "bg-gradient-to-r from-blue-500 to-cyan-500 text-white",
@@ -21,8 +21,8 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
   const [hovered, setHovered] = useState(false);
 
   return (
-    <motion.div 
-      variants={fadeIn("up", "spring", index * 0.5, 0.75)} 
+    <motion.div
+      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
       className="w-full sm:w-[320px]"
     >
       <Tilt
@@ -34,12 +34,12 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
         }}
         className="h-full w-full"
       >
-        <div 
+        <div
           className="animated-border-wrapper rounded-2xl p-[1.5px] h-full"
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
-          <div className="bg-tertiary rounded-[14px] p-3 flex flex-col h-full relative overflow-hidden">
+          <div className="glass-card rounded-[14px] p-3 flex flex-col h-full relative overflow-hidden">
             <div className='relative w-full h-[160px]'>
               <img src={image} alt={name} className='w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105' />
               <div className='absolute top-3 right-3 z-20'>
@@ -63,12 +63,12 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
 
             <div className='mt-2 flex flex-wrap gap-1'>
               {tags.map((tag) => (
-               <p
-      key={tag.name}
-      className={`text-[12px] px-2 py-0.5 rounded-full ${tagColorMap[tag.color] || 'bg-gray-500 text-white'}`}
-    >
-      #{tag.name}
-    </p>
+                <p
+                  key={tag.name}
+                  className={`text-[12px] px-2 py-0.5 rounded-full ${tagColorMap[tag.color] || 'bg-gray-500 text-white'}`}
+                >
+                  #{tag.name}
+                </p>
               ))}
             </div>
 

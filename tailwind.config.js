@@ -4,7 +4,7 @@ module.exports = {
   mode: "jit",
   theme: {
     extend: {
-animation: {
+      animation: {
         blob: 'blob 10s infinite',
       },
       keyframes: {
@@ -35,9 +35,7 @@ animation: {
       screens: {
         xs: "450px",
       },
-      backgroundImage: {
-        "hero-pattern": "url('/src/assets/herobg.png')",
-      },
+
     },
   },
   plugins: [],

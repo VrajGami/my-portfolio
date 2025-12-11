@@ -98,7 +98,11 @@ const Contact = () => {
       >
         <div className="bg-gray-900 p-8 rounded-2xl h-full">
           <p className={`${styles.sectionSubText} text-purple-300`}>Get in touch</p>
-          <h3 className={`${styles.sectionHeadText} text-blue-300`}>Contact</h3>
+          <h3 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 hover:from-pink-500 hover:to-yellow-500 transition-all duration-300 cursor-default">
+              Contact
+            </span>
+          </h3>
 
           <form
             ref={formRef}

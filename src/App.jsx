@@ -9,7 +9,11 @@ import {
   Tech,
   Works,
   Volunteering,
-  Background
+  Background,
+  CustomCursor,
+  CanvasCursor,
+  ShootingStars,
+  ScrollProgress
 } from "./components";
 
 
@@ -17,6 +21,11 @@ function App() {
   return (
     <BrowserRouter >
       <div className="relative z-0 bg-primary">
+
+        <CanvasCursor />
+        <CustomCursor />
+        <ShootingStars />
+        <ScrollProgress />
         <Background />
         <Routes>
           <Route
@@ -26,7 +35,7 @@ function App() {
                 <Navbar />
                 <Hero />
                 <About />
-                 <Tech />
+                <Tech />
                 <Experience />
                 <Volunteering />
                 <Works />

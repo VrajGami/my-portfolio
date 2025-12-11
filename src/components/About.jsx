@@ -43,7 +43,7 @@ const About = () => {
         </motion.div>
       </motion.div>
 
-      <motion.p
+      <motion.div
         variants={fadeIn("", "", 0.2, 1)}
         initial="hidden"
         animate="show"
@@ -87,7 +87,7 @@ const About = () => {
             transition={{ duration: 3.5, repeat: Infinity }}
           />
         </motion.div>
-      </motion.p>
+      </motion.div>
     </>
   );
 };

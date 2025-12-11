@@ -93,7 +93,11 @@ const Volunteering = () => {
         className={`w-full flex flex-col items-center mb-8`}
       >
         <p className={`${styles.sectionSubText} text-center mb-2`}>Community & Service</p>
-        <h2 className={`${styles.sectionHeadText} text-center bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent drop-shadow-lg`}>Volunteering</h2>
+        <h2 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] text-center">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 hover:from-pink-500 hover:to-yellow-500 transition-all duration-300 cursor-default">
+            Volunteering
+          </span>
+        </h2>
       </motion.div>
       <div className="mt-20 flex flex-col relative z-10 w-full">
         <VerticalTimeline lineColor="rgba(167, 139, 250, 0.3)">

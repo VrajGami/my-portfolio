@@ -84,7 +84,11 @@ const Experience = () => {
         animate={controls}
         className="text-center mb-12 px-4 relative z-10"
       >
-        <h2 className={styles.sectionHeadText}>Work Experience.</h2>
+        <h2 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 hover:from-pink-500 hover:to-yellow-500 transition-all duration-300 cursor-default">
+            Work Experience.
+          </span>
+        </h2>
       </motion.div>
 
       <div className="mt-20 flex flex-col relative z-10">

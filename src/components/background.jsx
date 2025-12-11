@@ -3,38 +3,34 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { PointMaterial, Preload } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
 import * as THREE from "three";
+import { useScroll, useSpring } from "framer-motion";
 
 const Stars = ({ mouse, lastMoveTime }) => {
   const ref = useRef();
   const numPoints = 5000;
   const sphere = random.inSphere(new Float32Array(numPoints * 3), { radius: 1.2 });
-  const targetRotation = useRef(new THREE.Vector3(0, 0, Math.PI / 4));
-  const idleSpeed = 0.0005;
 
-  useFrame(() => {
-    const now = Date.now();
-    const timeSinceMove = now - lastMoveTime.current;
-    const isIdle = timeSinceMove > 100;
+  const { scrollYProgress } = useScroll();
+  const scrollVelocity = useSpring(scrollYProgress, { stiffness: 400, damping: 90 });
 
-    if (!ref.current) return;
+  useFrame((state, delta) => {
+    const velocity = Math.abs(scrollVelocity.getPrevious() - scrollVelocity.get()) * 10;
+    const warpSpeed = Math.min(velocity, 0.05);
 
-    if (isIdle) {
-      ref.current.rotation.y += idleSpeed;
-    } else {
-      const targetX = (mouse.current.y / window.innerHeight - 0.5) * Math.PI / 16;
-      const targetY = (mouse.current.x / window.innerWidth - 0.5) * Math.PI / 16;
-
-      targetRotation.current.x += (targetX - targetRotation.current.x) * 0.05;
-      targetRotation.current.y += (targetY - targetRotation.current.y) * 0.05;
-
-      ref.current.rotation.x = targetRotation.current.x;
-      ref.current.rotation.y = targetRotation.current.y;
+    if (ref.current) {
+      if (warpSpeed > 0.001) {
+        ref.current.rotation.x -= warpSpeed;
+        ref.current.rotation.y -= warpSpeed * 0.2;
+      } else {
+        ref.current.rotation.x -= delta / 10;
+        ref.current.rotation.y -= delta / 15;
+      }
     }
   });
 
   return (
-    <group>
-      <points ref={ref}>
+    <group rotation={[0, 0, Math.PI / 4]}>
+      <points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
@@ -47,7 +43,7 @@ const Stars = ({ mouse, lastMoveTime }) => {
           transparent
           color="#f272c8"
           size={0.002}
-          sizeAttenuation
+          sizeAttenuation={true}
           depthWrite={false}
         />
       </points>
@@ -93,10 +89,7 @@ const StarsCanvas = () => {
 export default function Background() {
   return (
     <>
-      <div
-        className="fixed inset-0 z-[-100000] overflow-hidden"
-      >
-      
+      <div className="fixed inset-0 z-[-100000] overflow-hidden">
         <div
           className="absolute bottom-0 left-0 w-full h-1/2"
           style={{
@@ -105,8 +98,6 @@ export default function Background() {
           }}
         />
       </div>
-
-      {/* Stars */}
       <StarsCanvas />
     </>
   );
